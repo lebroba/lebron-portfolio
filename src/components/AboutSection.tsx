@@ -33,7 +33,7 @@ const AboutSection = () => {
                 {/* Placeholder content */}
                 <div className="text-center p-8">
                   <div className="w-24 h-24 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-3xl font-orbitron font-bold text-primary">eL</span>
+                    <span className="text-3xl font-orbitron font-bold text-primary">BL</span>
                   </div>
                   <p className="text-muted-foreground font-rajdhani">Professional Portrait</p>
                 </div>

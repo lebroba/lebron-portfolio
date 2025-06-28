@@ -40,9 +40,9 @@ const HeroSection = () => {
           <h1 
             id="hero-heading"
             className="text-5xl md:text-7xl lg:text-8xl font-orbitron font-black text-foreground glitch tracking-wider"
-            data-text="en Lebron"
+            data-text="Ben Lebron"
           >
-            en Lebron
+            Ben Lebron
           </h1>
 
           {/* Dynamic Title */}

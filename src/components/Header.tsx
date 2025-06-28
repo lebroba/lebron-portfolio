@@ -20,10 +20,10 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-sm flex items-center justify-center">
-            <span className="text-background font-orbitron font-bold text-sm" aria-hidden="true">eL</span>
+            <span className="text-background font-orbitron font-bold text-sm" aria-hidden="true">BL</span>
           </div>
           <span className="font-orbitron font-bold text-xl tracking-wider">
-            en Lebron
+            Ben Lebron
           </span>
         </div>
 

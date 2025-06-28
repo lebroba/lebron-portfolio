@@ -32,10 +32,10 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <div className="w-6 h-6 bg-gradient-to-br from-primary to-accent rounded-sm flex items-center justify-center">
-              <span className="text-background font-orbitron font-bold text-xs" aria-hidden="true">eL</span>
+              <span className="text-background font-orbitron font-bold text-xs" aria-hidden="true">BL</span>
             </div>
             <span className="font-orbitron font-bold text-lg tracking-wider text-foreground">
-              en Lebron
+              Ben Lebron
             </span>
           </div>
           
@@ -44,7 +44,7 @@ const Index = () => {
           </p>
           
           <p className="text-sm text-muted-foreground font-rajdhani">
-            © 2025 en Lebron. All rights reserved. | Designed with military precision.
+            © 2025 Ben Lebron. All rights reserved. | Designed with military precision.
           </p>
           
           {/* 508 Compliance Statement */}
