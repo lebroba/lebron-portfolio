@@ -12,16 +12,18 @@ const PortfolioSection = () => {
 
   const filters = [
     { id: "all", label: "All Operations" },
-    { id: "tactical", label: "Tactical Graphics" },
-    { id: "digital", label: "Digital Art" },
-    { id: "branding", label: "Military Branding" },
-    { id: "ui", label: "Interface Design" }
+    { id: "ui", label: "UI Design" },
+    { id: "military-insignia", label: "Military Insignia" },
+    { id: "3d", label: "3D Modeling" },
+    { id: "print-design", label: "Print Design" },
+    { id: "web-design", label: "Web Design" },
+    { id: "ai", label: "AI & Digital Art" }
   ];
 
   const portfolioItems = [
     {
       id: 1,
-      title: "Tactical Command Interface",
+      title: "Military Command Interface",
       category: "ui",
       description: "Mission-critical interface design for command operations",
       image: "/placeholder.svg?height=400&width=600",
@@ -29,43 +31,43 @@ const PortfolioSection = () => {
     },
     {
       id: 2,
-      title: "Military Unit Insignia",
-      category: "branding",
+      title: "Special Forces Unit Badge",
+      category: "military-insignia",
       description: "Official unit insignia and branding system",
       image: "/placeholder.svg?height=400&width=600",
       tech: ["Illustrator", "Branding", "Vector Art"]
     },
     {
       id: 3,
-      title: "Digital Warfare Visualization",
-      category: "digital",
-      description: "Complex data visualization for strategic planning",
+      title: "Tactical Equipment Model",
+      category: "3d",
+      description: "3D rendered tactical equipment for training materials",
       image: "/placeholder.svg?height=400&width=600",
-      tech: ["3D Modeling", "After Effects", "Cinema 4D"]
+      tech: ["Blender", "Cinema 4D", "KeyShot"]
     },
     {
       id: 4,
-      title: "Tactical Field Manual",
-      category: "tactical",
-      description: "Technical illustration and layout design",
+      title: "Field Manual Layout",
+      category: "print-design",
+      description: "Technical manual design with clear information hierarchy",
       image: "/placeholder.svg?height=400&width=600",
       tech: ["InDesign", "Technical Illustration", "Print Design"]
     },
     {
       id: 5,
-      title: "Command Center Display",
-      category: "ui",
-      description: "Real-time monitoring dashboard design",
+      title: "Military Portal Website",
+      category: "web-design",
+      description: "Responsive web portal for military personnel",
       image: "/placeholder.svg?height=400&width=600",
-      tech: ["Dashboard Design", "Data Viz", "React"]
+      tech: ["Web Design", "HTML/CSS", "JavaScript"]
     },
     {
       id: 6,
-      title: "Military Campaign Graphics",
-      category: "tactical",
-      description: "Strategic communication materials",
+      title: "AI-Generated Concept Art",
+      category: "ai",
+      description: "Futuristic military concept art using AI tools",
       image: "/placeholder.svg?height=400&width=600",
-      tech: ["Photoshop", "Campaign Design", "Print"]
+      tech: ["Midjourney", "Photoshop", "AI Art"]
     }
   ];
 
