@@ -1,9 +1,14 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import Modal from "@/components/Modal";
+import PortfolioCarousel from "@/components/PortfolioCarousel";
+import { portfolioData } from "@/data/portfolioData";
 
 const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedSlideIndex, setSelectedSlideIndex] = useState(0);
 
   const filters = [
     { id: "all", label: "All Operations" },
@@ -68,6 +73,21 @@ const PortfolioSection = () => {
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeFilter);
 
+  const handleItemClick = (category: string) => {
+    const categoryData = portfolioData.find(cat => cat.id === category);
+    if (categoryData && categoryData.slides.length > 0) {
+      setSelectedCategory(category);
+      setSelectedSlideIndex(0);
+    }
+  };
+
+  const closeModal = () => {
+    setSelectedCategory(null);
+    setSelectedSlideIndex(0);
+  };
+
+  const selectedCategoryData = portfolioData.find(cat => cat.id === selectedCategory);
+
   return (
     <section 
       id="portfolio" 
@@ -117,8 +137,9 @@ const PortfolioSection = () => {
           {filteredItems.map((item, index) => (
             <div 
               key={item.id}
-              className="group animate-fade-in bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+              className="group animate-fade-in bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 cursor-pointer"
               style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => handleItemClick(item.category)}
             >
               {/* Image Container */}
               <div className="relative aspect-video bg-gradient-to-br from-tactical-green/20 to-tactical-olive/20 overflow-hidden">
@@ -193,6 +214,17 @@ const PortfolioSection = () => {
           </Button>
         </div>
       </div>
+
+      {/* Portfolio Carousel Modal */}
+      <Modal isOpen={!!selectedCategory} onClose={closeModal}>
+        {selectedCategoryData && (
+          <PortfolioCarousel
+            slides={selectedCategoryData.slides}
+            initialSlide={selectedSlideIndex}
+            onClose={closeModal}
+          />
+        )}
+      </Modal>
 
       {/* Background decoration */}
       <div className="absolute inset-0 military-grid opacity-5" aria-hidden="true"></div>
