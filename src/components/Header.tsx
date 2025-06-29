@@ -1,43 +1,49 @@
 
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" }
+    { name: "Home", href: "/home" },
+    { name: "About", href: "/about" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Skills", href: "/skills" },
+    { name: "Contact", href: "/contact" }
   ];
+
+  const isActivePage = (href: string) => location.pathname === href;
 
   return (
     <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-primary/20 z-50">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between" role="navigation" aria-label="Main navigation">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-sm flex items-center justify-center">
             <span className="text-background font-orbitron font-bold text-sm" aria-hidden="true">BL</span>
           </div>
           <span className="font-orbitron font-bold text-xl tracking-wider">
             Ben Lebron
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
-              className="text-foreground hover:text-primary transition-colors duration-200 font-rajdhani font-medium uppercase tracking-wide text-sm focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
+              to={item.href}
+              className={`text-foreground hover:text-primary transition-colors duration-200 font-rajdhani font-medium uppercase tracking-wide text-sm focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 ${
+                isActivePage(item.href) ? 'text-primary border-b-2 border-primary' : ''
+              }`}
               aria-label={`Navigate to ${item.name} section`}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -64,16 +70,18 @@ const Header = () => {
           >
             <div className="container mx-auto px-4 py-4 space-y-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className="block text-foreground hover:text-primary transition-colors duration-200 font-rajdhani font-medium uppercase tracking-wide text-sm py-2 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
+                  to={item.href}
+                  className={`block text-foreground hover:text-primary transition-colors duration-200 font-rajdhani font-medium uppercase tracking-wide text-sm py-2 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 ${
+                    isActivePage(item.href) ? 'text-primary' : ''
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                   role="menuitem"
                   aria-label={`Navigate to ${item.name} section`}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

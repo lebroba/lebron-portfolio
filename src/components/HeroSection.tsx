@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -61,15 +62,15 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <a href="#portfolio" aria-label="View my portfolio">
+            <Link to="/portfolio" aria-label="View my portfolio">
               <Button 
                 size="lg" 
                 className="tactical-btn px-8 py-6 text-lg w-full sm:w-auto"
               >
                 View Portfolio
               </Button>
-            </a>
-            <a href="#contact" aria-label="Get in touch">
+            </Link>
+            <Link to="/contact" aria-label="Get in touch">
               <Button 
                 variant="outline" 
                 size="lg" 
@@ -77,7 +78,7 @@ const HeroSection = () => {
               >
                 Get In Touch
               </Button>
-            </a>
+            </Link>
           </div>
 
           {/* Scroll Indicator */}
