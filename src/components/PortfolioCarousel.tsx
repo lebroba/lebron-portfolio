@@ -1,3 +1,4 @@
+
 import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Thumbs, Keyboard } from 'swiper/modules';
@@ -60,8 +61,8 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
               url={slide.src}
               width="100%"
               height="100%"
-              controls={true}
-              light={true}
+              controls
+              light
               playing={false}
             />
           </div>
