@@ -11,10 +11,10 @@ const PortfolioSection = () => {
   const [selectedSlideIndex, setSelectedSlideIndex] = useState(0);
 
   const filters = [
-    { id: "all", label: "All Operations" },
+    { id: "all", label: "All Projects" },
     { id: "ui", label: "UI Design" },
     { id: "military-insignia", label: "Military Insignia" },
-    { id: "3d", label: "3D Modeling" },
+    { id: "3d", label: "3D Design" },
     { id: "print-design", label: "Print Design" },
     { id: "web-design", label: "Web Design" },
     { id: "ai", label: "AI & Digital Art" }
@@ -23,7 +23,7 @@ const PortfolioSection = () => {
   const portfolioItems = [
     {
       id: 1,
-      title: "Military Command Interface",
+      title: "UI Design",
       category: "ui",
       description: "Mission-critical interface design for command operations",
       image: "/placeholder.svg?height=400&width=600",
@@ -31,7 +31,7 @@ const PortfolioSection = () => {
     },
     {
       id: 2,
-      title: "Special Forces Unit Badge",
+      title: "Military & Unit Insignia",
       category: "military-insignia",
       description: "Official unit insignia and branding system",
       image: "/placeholder.svg?height=400&width=600",
@@ -39,7 +39,7 @@ const PortfolioSection = () => {
     },
     {
       id: 3,
-      title: "Tactical Equipment Model",
+      title: "3D Modeling & Rendering",
       category: "3d",
       description: "3D rendered tactical equipment for training materials",
       image: "/placeholder.svg?height=400&width=600",
@@ -47,7 +47,7 @@ const PortfolioSection = () => {
     },
     {
       id: 4,
-      title: "Field Manual Layout",
+      title: "Print Layout",
       category: "print-design",
       description: "Technical manual design with clear information hierarchy",
       image: "/placeholder.svg?height=400&width=600",
@@ -96,22 +96,13 @@ const PortfolioSection = () => {
       className="py-20 bg-background relative"
       aria-labelledby="portfolio-heading"
     >
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 
-            id="portfolio-heading"
-            className="text-4xl md:text-5xl font-orbitron font-bold text-foreground mb-4 tracking-wider"
-          >
-            Mission Archive
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6"></div>
-          <p className="text-xl text-muted-foreground font-rajdhani max-w-2xl mx-auto">
-            Classified operations and tactical achievements in visual communications
-          </p>
-        </div>
-
-        {/* Filter Buttons */}
+      <div
+        className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl"
+        role="region"
+        aria-labelledby="portfolio-heading"
+      >
+        <h2 id="portfolio-heading" className="sr-only">Portfolio Projects</h2>
+        {/* Portfolio Filter Navigation */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {filters.map((filter) => (
             <Button

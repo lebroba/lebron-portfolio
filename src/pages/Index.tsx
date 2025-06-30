@@ -1,17 +1,14 @@
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import PortfolioSection from "@/components/PortfolioSection";
-import SkillsSection from "@/components/SkillsSection";
-import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Skip to main content link for accessibility */}
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-background px-4 py-2 rounded-md z-50 font-rajdhani font-medium"
       >
         Skip to main content
@@ -21,41 +18,9 @@ const Index = () => {
       
       <main id="main-content" role="main">
         <HeroSection />
-        <AboutSection />
-        <PortfolioSection />
-        <SkillsSection />
-        <ContactSection />
       </main>
 
-      {/* Footer */}
-      <footer className="bg-tactical-dark border-t border-primary/20 h-[60px] flex items-center" role="contentinfo">
-        <div className="container mx-auto px-4 flex items-center justify-between w-full">
-          {/* Left side - 508 Compliance Statement */}
-          <p className="text-xs text-muted-foreground font-rajdhani flex-shrink-0">
-            This website meets Section 508 accessibility standards and WCAG 2.1 AA guidelines.
-          </p>
-          
-          {/* Center - Description and Copyright */}
-          <div className="flex flex-col items-center text-center">
-            <p className="text-muted-foreground font-rajdhani text-sm">
-              Military Graphic Artist & Tactical Design Specialist
-            </p>
-            <p className="text-xs text-muted-foreground font-rajdhani">
-              © 2025 Ben Lebron. All rights reserved. | Designed with military precision.
-            </p>
-          </div>
-          
-          {/* Right side - Logo and Name */}
-          <div className="flex items-center space-x-2 flex-shrink-0">
-            <div className="w-6 h-6 bg-gradient-to-br from-primary to-accent rounded-sm flex items-center justify-center">
-              <span className="text-background font-orbitron font-bold text-xs" aria-hidden="true">BL</span>
-            </div>
-            <span className="font-orbitron font-bold text-lg tracking-wider text-foreground">
-              Ben Lebron
-            </span>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

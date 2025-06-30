@@ -27,7 +27,7 @@ const Header = () => {
             <span className="text-background font-orbitron font-bold text-sm" aria-hidden="true">BL</span>
           </div>
           <span className="font-orbitron font-bold text-xl tracking-wider">
-            Ben Lebron
+            Ben LeBron
           </span>
         </Link>
 

@@ -19,9 +19,16 @@ const HeroSection = () => {
   }, [titles.length]);
 
   return (
-    <section 
-      id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-tactical-dark to-background"
+    <section
+      id="home"
+      className="flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-tactical-dark to-background"
+      style={{
+        height: "calc(100vh - 120px)",
+        position: "absolute",
+        top: '60px',
+        left: 0,
+        right: 0
+      }}
       aria-labelledby="hero-heading"
     >
       {/* Animated Grid Background */}
@@ -41,9 +48,9 @@ const HeroSection = () => {
           <h1 
             id="hero-heading"
             className="text-5xl md:text-7xl lg:text-8xl font-orbitron font-black text-foreground glitch tracking-wider"
-            data-text="Ben Lebron"
+            data-text="Ben LeBron"
           >
-            Ben Lebron
+            Ben LeBron
           </h1>
 
           {/* Dynamic Title */}
