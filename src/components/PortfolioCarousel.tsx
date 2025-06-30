@@ -1,9 +1,8 @@
-
 import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Thumbs, Keyboard } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
-import ReactPlayer from 'react-player/lazy';
+import ReactPlayer from 'react-player';
 import { X, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SlideData } from '@/data/portfolioData';
@@ -61,8 +60,8 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
               url={slide.src}
               width="100%"
               height="100%"
-              controls={true}
-              light={true}
+              controls
+              light
               playing={false}
             />
           </div>
