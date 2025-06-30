@@ -195,17 +195,6 @@ const PortfolioSection = () => {
             </div>
           ))}
         </div>
-
-        {/* View More Button */}
-        <div className="text-center mt-12">
-          <Button 
-            size="lg" 
-            className="tactical-btn px-8 py-6 text-lg"
-            aria-label="View complete portfolio"
-          >
-            View Complete Archive
-          </Button>
-        </div>
       </div>
 
       {/* Portfolio Carousel Modal */}
