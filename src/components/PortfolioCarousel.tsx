@@ -60,8 +60,8 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
               url={slide.src}
               width="100%"
               height="100%"
-              controls
-              light
+              controls={true}
+              light={true}
               playing={false}
             />
           </div>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Modal from "@/components/Modal";
@@ -209,7 +208,7 @@ const PortfolioSection = () => {
       </Modal>
 
       {/* Background decoration */}
-      <div className="absolute inset-0 military-grid opacity-5" aria-hidden="true"></div>
+      <div className="absolute inset-0 military-grid opacity-5 overflow-hidden" aria-hidden="true"></div>
     </section>
   );
 };
