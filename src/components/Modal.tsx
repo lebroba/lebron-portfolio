@@ -37,16 +37,18 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
-
+  // Always render the portal, but conditionally show/hide the content
   return createPortal(
-    <div 
-      className="fixed inset-0 z-50"
+    <div
+      className={`modal-container fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
         }
       }}
+      aria-modal={isOpen ? "true" : "false"}
+      role="dialog"
+      data-is-open={isOpen ? "true" : "false"}
     >
       {children}
     </div>,

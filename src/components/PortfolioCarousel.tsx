@@ -3,6 +3,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Thumbs, Keyboard } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 import ReactPlayer from 'react-player';
+
+// Define interface for Swiper element
+interface SwiperElement extends HTMLElement {
+  swiper: {
+    slideTo: (index: number) => void;
+  };
+}
 import { X, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SlideData } from '@/data/portfolioData';
@@ -56,12 +63,13 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
       case 'vimeo':
         return (
           <div className="w-full max-w-4xl mx-auto aspect-video">
+            {/* @ts-expect-error - ReactPlayer types are not correctly defined */}
             <ReactPlayer
               url={slide.src}
               width="100%"
               height="100%"
-              controls
-              light
+              controls={true}
+              light={true}
               playing={false}
             />
           </div>
@@ -72,12 +80,10 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
   };
 
   return (
-    <div 
-      className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm"
+    <div
+      className="w-full h-full flex items-center justify-center"
       onKeyDown={handleKeyDown}
       tabIndex={-1}
-      role="dialog"
-      aria-modal="true"
       aria-labelledby="carousel-title"
     >
       {/* Close Button */}
@@ -191,8 +197,8 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
                     `}
                     onClick={() => {
                       // Navigate to this slide
-                      const mainSwiper = document.querySelector('.swiper') as any;
-                      if (mainSwiper?.swiper) {
+                      const mainSwiper = document.querySelector('.swiper') as SwiperElement | null;
+                      if (mainSwiper && 'swiper' in mainSwiper) {
                         mainSwiper.swiper.slideTo(index);
                       }
                     }}

@@ -1,85 +1,70 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Modal from "@/components/Modal";
 import PortfolioCarousel from "@/components/PortfolioCarousel";
 import { portfolioData } from "@/data/portfolioData";
 
 const PortfolioSection = () => {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedSlideIndex, setSelectedSlideIndex] = useState(0);
 
+  // Global click handler is no longer needed as we have direct click handlers
+
+  // Generate filters from portfolioData
   const filters = [
     { id: "all", label: "All Projects" },
-    { id: "ui", label: "UI Design" },
-    { id: "military-insignia", label: "Military Insignia" },
-    { id: "3d", label: "3D Design" },
-    { id: "print-design", label: "Print Design" },
-    { id: "web-design", label: "Web Design" },
-    { id: "ai", label: "AI & Digital Art" }
+    ...portfolioData.map(category => ({
+      id: category.id,
+      label: category.name
+    }))
   ];
 
-  const portfolioItems = [
-    {
-      id: 1,
-      title: "UI Design",
-      category: "ui",
-      description: "Mission-critical interface design for command operations",
-      image: "/placeholder.svg?height=400&width=600",
-      tech: ["UI/UX", "Figma", "Adobe XD"]
-    },
-    {
-      id: 2,
-      title: "Military & Unit Insignia",
-      category: "military-insignia",
-      description: "Official unit insignia and branding system",
-      image: "/placeholder.svg?height=400&width=600",
-      tech: ["Illustrator", "Branding", "Vector Art"]
-    },
-    {
-      id: 3,
-      title: "3D Modeling & Rendering",
-      category: "3d",
-      description: "3D rendered tactical equipment for training materials",
-      image: "/placeholder.svg?height=400&width=600",
-      tech: ["Blender", "Cinema 4D", "KeyShot"]
-    },
-    {
-      id: 4,
-      title: "Print Layout",
-      category: "print-design",
-      description: "Technical manual design with clear information hierarchy",
-      image: "/placeholder.svg?height=400&width=600",
-      tech: ["InDesign", "Technical Illustration", "Print Design"]
-    },
-    {
-      id: 5,
-      title: "Military Portal Website",
-      category: "web-design",
-      description: "Responsive web portal for military personnel",
-      image: "/placeholder.svg?height=400&width=600",
-      tech: ["Web Design", "HTML/CSS", "JavaScript"]
-    },
-    {
-      id: 6,
-      title: "AI-Generated Concept Art",
-      category: "ai",
-      description: "Futuristic military concept art using AI tools",
-      image: "/placeholder.svg?height=400&width=600",
-      tech: ["Midjourney", "Photoshop", "AI Art"]
-    }
-  ];
+  // Create portfolio items from portfolioData for the grid display
+  const portfolioItems = portfolioData.map(category => {
+    // Use the first slide as the representative for the category
+    const firstSlide = category.slides[0];
+    return {
+      id: category.id,
+      title: category.name,
+      category: category.id,
+      description: firstSlide.description,
+      image: firstSlide.thumbnail || firstSlide.src,
+      tech: firstSlide.software.split(', ')
+    };
+  });
 
-  const filteredItems = activeFilter === "all" 
-    ? portfolioItems 
+  const filteredItems = activeFilter === "all"
+    ? portfolioItems
     : portfolioItems.filter(item => item.category === activeFilter);
 
   const handleItemClick = (category: string) => {
-    const categoryData = portfolioData.find(cat => cat.id === category);
-    if (categoryData && categoryData.slides.length > 0) {
+    try {
+      if (!category) {
+        console.error('handleItemClick called with empty category');
+        return;
+      }
+      
+      const categoryData = portfolioData.find(cat => cat.id === category);
+      
+      if (!categoryData) {
+        console.error(`Category ${category} not found in portfolioData`);
+        return;
+      }
+      
+      if (!categoryData.slides || categoryData.slides.length === 0) {
+        console.error(`Category ${category} has no slides`);
+        return;
+      }
+      
+      // Update state
       setSelectedCategory(category);
       setSelectedSlideIndex(0);
+    } catch (error) {
+      console.error('Error in handleItemClick:', error);
     }
   };
 
@@ -91,10 +76,11 @@ const PortfolioSection = () => {
   const selectedCategoryData = portfolioData.find(cat => cat.id === selectedCategory);
 
   return (
-    <section 
-      id="portfolio" 
-      className="py-20 bg-background relative"
+    <section
+      id="portfolio"
+      className="portfolio-section py-20 bg-background relative"
       aria-labelledby="portfolio-heading"
+      data-selected-category={selectedCategory || "none"}
     >
       <div
         className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl"
@@ -128,11 +114,21 @@ const PortfolioSection = () => {
         {/* Portfolio Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item, index) => (
-            <div 
+            <div
               key={item.id}
-              className="group animate-fade-in bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 cursor-pointer"
+              className="portfolio-item group animate-fade-in bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 cursor-pointer"
               style={{ animationDelay: `${index * 0.1}s` }}
+              data-category={item.category}
+              role="button"
+              tabIndex={0}
               onClick={() => handleItemClick(item.category)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleItemClick(item.category);
+                }
+              }}
+              aria-label={`View ${item.title} portfolio`}
             >
               {/* Image Container */}
               <div className="relative aspect-video bg-gradient-to-br from-tactical-green/20 to-tactical-olive/20 overflow-hidden">
@@ -145,29 +141,42 @@ const PortfolioSection = () => {
                 <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-primary opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-primary opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                {/* Placeholder content */}
+                {/* Image or Placeholder content */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-primary/20 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                      <span className="text-2xl font-orbitron font-bold text-primary">
-                        {item.title.charAt(0)}
-                      </span>
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-primary/20 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                        <span className="text-2xl font-orbitron font-bold text-primary">
+                          {item.title.charAt(0)}
+                        </span>
+                      </div>
+                      <p className="text-xs text-muted-foreground font-rajdhani uppercase tracking-wider">
+                        {item.category}
+                      </p>
                     </div>
-                    <p className="text-xs text-muted-foreground font-rajdhani uppercase tracking-wider">
-                      {item.category}
-                    </p>
-                  </div>
+                  )}
                 </div>
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                  <Button 
-                    size="sm" 
-                    className="tactical-btn px-4 py-2 text-xs"
+                  <button
+                    className="view-details-btn inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md tactical-btn px-4 py-2 text-xs"
                     aria-label={`View details for ${item.title}`}
+                    data-category={item.category}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleItemClick(item.category);
+                    }}
                   >
                     View Details
-                  </Button>
+                  </button>
                 </div>
               </div>
 
@@ -183,7 +192,7 @@ const PortfolioSection = () => {
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2">
                   {item.tech.map((tech) => (
-                    <span 
+                    <span
                       key={tech}
                       className="px-3 py-1 bg-primary/10 text-primary text-xs font-rajdhani font-medium uppercase tracking-wider rounded-sm border border-primary/20"
                     >
@@ -198,10 +207,11 @@ const PortfolioSection = () => {
 
         {/* View More Button */}
         <div className="text-center mt-12">
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="tactical-btn px-8 py-6 text-lg"
             aria-label="View complete portfolio"
+            onClick={() => navigate('/portfolio')}
           >
             View Complete Archive
           </Button>
@@ -210,17 +220,21 @@ const PortfolioSection = () => {
 
       {/* Portfolio Carousel Modal */}
       <Modal isOpen={!!selectedCategory} onClose={closeModal}>
-        {selectedCategoryData && (
+        {selectedCategoryData ? (
           <PortfolioCarousel
             slides={selectedCategoryData.slides}
             initialSlide={selectedSlideIndex}
             onClose={closeModal}
           />
+        ) : (
+          <div className="text-white p-8 text-center">
+            <p>Loading content...</p>
+          </div>
         )}
       </Modal>
 
-      {/* Background decoration */}
-      <div className="absolute inset-0 military-grid opacity-5" aria-hidden="true"></div>
+      {/* Background decoration - with pointer-events-none to allow clicks to pass through */}
+      <div className="absolute inset-0 military-grid opacity-5 pointer-events-none" aria-hidden="true"></div>
     </section>
   );
 };
