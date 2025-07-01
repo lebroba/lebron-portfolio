@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+=======
+import { useState } from "react";
+>>>>>>> 36a56ebd61e80849d13c877f5c3449d5ffd58702
 import { Button } from "@/components/ui/button";
 import Modal from "@/components/Modal";
 import PortfolioCarousel from "@/components/PortfolioCarousel";
@@ -204,6 +208,7 @@ const PortfolioSection = () => {
             </div>
           ))}
         </div>
+<<<<<<< HEAD
 
         {/* View More Button */}
         <div className="text-center mt-12">
@@ -216,6 +221,8 @@ const PortfolioSection = () => {
             View Complete Archive
           </Button>
         </div>
+=======
+>>>>>>> 36a56ebd61e80849d13c877f5c3449d5ffd58702
       </div>
 
       {/* Portfolio Carousel Modal */}
@@ -233,8 +240,13 @@ const PortfolioSection = () => {
         )}
       </Modal>
 
+<<<<<<< HEAD
       {/* Background decoration - with pointer-events-none to allow clicks to pass through */}
       <div className="absolute inset-0 military-grid opacity-5 pointer-events-none" aria-hidden="true"></div>
+=======
+      {/* Background decoration */}
+      <div className="absolute inset-0 military-grid opacity-5 overflow-hidden" aria-hidden="true"></div>
+>>>>>>> 36a56ebd61e80849d13c877f5c3449d5ffd58702
     </section>
   );
 };
