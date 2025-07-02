@@ -63,8 +63,8 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
       case 'vimeo':
         return (
           <div className="w-full max-w-4xl mx-auto aspect-video">
-            {/* @ts-expect-error - ReactPlayer types are not correctly defined */}
             <ReactPlayer
+              // @ts-expect-error - ReactPlayer props are not correctly typed
               url={slide.src}
               width="100%"
               height="100%"
@@ -81,7 +81,7 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
 
   return (
     <div
-      className="w-full h-full flex items-center justify-center"
+      className="w-full h-full"
       onKeyDown={handleKeyDown}
       tabIndex={-1}
       aria-labelledby="carousel-title"
@@ -114,10 +114,11 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
         <ArrowRight size={20} />
       </button>
 
-      <div className="h-full flex flex-col">
-        {/* Main Carousel */}
-        <div className="flex-1 flex items-center justify-center p-4">
-          <div className="w-full max-w-6xl">
+      {/* Grid Layout Container */}
+      <div className="h-full grid grid-cols-9 grid-rows-6 gap-0">
+        {/* div1: Main Image Area (1,1 to 5,7) */}
+        <div className="col-start-1 col-end-8 row-start-1 row-end-6 p-4 flex items-center justify-center">
+          <div className="w-full h-full">
             <Swiper
               modules={[Navigation, Thumbs, Keyboard]}
               spaceBetween={30}
@@ -150,75 +151,76 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
           </div>
         </div>
 
-        {/* Slide Information */}
-        <div className="bg-tactical-dark/90 border-t border-primary/20 p-6">
-          <div className="container mx-auto max-w-4xl">
-            <h2 
-              id="carousel-title"
-              className="text-2xl font-orbitron font-bold text-white mb-2"
-            >
-              {slides[activeIndex]?.title}
-            </h2>
-            <p className="text-gray-300 font-rajdhani mb-3 leading-relaxed">
-              {slides[activeIndex]?.description}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {slides[activeIndex]?.software.split(', ').map((tech) => (
-                <span 
-                  key={tech}
-                  className="px-3 py-1 bg-primary/20 text-primary text-sm font-rajdhani font-medium uppercase tracking-wider rounded-sm border border-primary/30"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+        {/* div3: Description Area (1,8 to 3,10) */}
+        <div className="col-start-8 col-end-10 row-start-1 row-end-4 bg-tactical-dark/90 border-l border-primary/20 p-4 overflow-y-auto">
+          <h2
+            id="carousel-title"
+            className="text-2xl font-orbitron font-bold text-white mb-3"
+          >
+            {slides[activeIndex]?.title}
+          </h2>
+          <p className="text-gray-300 font-rajdhani leading-relaxed">
+            {slides[activeIndex]?.description}
+          </p>
+        </div>
+
+        {/* div4: Software Used Area (4,8 to 5,10) */}
+        <div className="col-start-8 col-end-10 row-start-4 row-end-6 bg-tactical-dark/80 border-l border-t border-primary/20 p-4">
+          <h3 className="text-lg font-orbitron font-bold text-white mb-2">Software Used</h3>
+          <div className="flex flex-wrap gap-2">
+            {slides[activeIndex]?.software.split(', ').map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 bg-primary/20 text-primary text-sm font-rajdhani font-medium uppercase tracking-wider rounded-sm border border-primary/30"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* Thumbnails */}
-        <div className="p-4 bg-tactical-dark/80">
-          <div className="container mx-auto max-w-4xl">
-            <Swiper
-              modules={[Navigation]}
-              onSwiper={setThumbsSwiper}
-              spaceBetween={10}
-              slidesPerView="auto"
-              freeMode
-              watchSlidesProgress
-              className="thumbs-swiper"
-            >
-              {slides.map((slide, index) => (
-                <SwiperSlide key={slide.id} className="!w-auto">
-                  <div 
-                    className={`
-                      w-20 h-16 bg-tactical-green/20 rounded border-2 cursor-pointer overflow-hidden
-                      ${index === activeIndex ? 'border-primary' : 'border-primary/30 hover:border-primary/60'}
-                      transition-all duration-200
-                    `}
-                    onClick={() => {
-                      // Navigate to this slide
-                      const mainSwiper = document.querySelector('.swiper') as SwiperElement | null;
-                      if (mainSwiper && 'swiper' in mainSwiper) {
-                        mainSwiper.swiper.slideTo(index);
-                      }
-                    }}
-                  >
-                    {slide.thumbnail ? (
-                      <img 
-                        src={slide.thumbnail} 
-                        alt={slide.title}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-xs text-primary font-orbitron font-bold">
-                        {slide.title.charAt(0)}
-                      </div>
-                    )}
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+        {/* div2: Thumbnails Area (6,1 to 6,10) */}
+        <div className="col-start-1 col-end-10 row-start-6 row-end-7 bg-tactical-dark/80 border-t border-primary/20 p-3">
+          <Swiper
+            modules={[Navigation]}
+            onSwiper={setThumbsSwiper}
+            spaceBetween={10}
+            slidesPerView="auto"
+            freeMode
+            watchSlidesProgress
+            className="thumbs-swiper"
+          >
+            {slides.map((slide, index) => (
+              <SwiperSlide key={slide.id} className="!w-auto">
+                <div
+                  className={`
+                    w-20 h-16 bg-tactical-green/20 rounded border-2 cursor-pointer overflow-hidden
+                    ${index === activeIndex ? 'border-primary' : 'border-primary/30 hover:border-primary/60'}
+                    transition-all duration-200
+                  `}
+                  onClick={() => {
+                    // Navigate to this slide
+                    const mainSwiper = document.querySelector('.swiper') as SwiperElement | null;
+                    if (mainSwiper && 'swiper' in mainSwiper) {
+                      mainSwiper.swiper.slideTo(index);
+                    }
+                  }}
+                >
+                  {slide.thumbnail ? (
+                    <img
+                      src={slide.thumbnail}
+                      alt={slide.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-xs text-primary font-orbitron font-bold">
+                      {slide.title.charAt(0)}
+                    </div>
+                  )}
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </div>
