@@ -31,6 +31,21 @@ const HeroSection = () => {
       }}
       aria-labelledby="hero-heading"
     >
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <video
+          className="absolute w-full h-full object-cover opacity-40"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/videos/ship_vid.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-background/50"></div>
+      </div>
+
       {/* Animated Grid Background */}
       <div className="absolute inset-0 military-grid opacity-30" aria-hidden="true">
         <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent"></div>
