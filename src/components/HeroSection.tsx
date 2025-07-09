@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import shipVideo from "/videos/ship_vid.mp4";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+
+// Use import.meta.env.BASE_URL to get the correct path based on the deployment environment
+const shipVideoPath = import.meta.env.BASE_URL + "videos/ship_vid.mp4";
+console.log("Video path:", shipVideoPath);
 
 const HeroSection = () => {
   const [currentTitle, setCurrentTitle] = useState(0);
@@ -40,7 +43,7 @@ const HeroSection = () => {
           muted
           playsInline
         >
-          <source src={shipVideo} type="video/mp4" />
+          <source src={shipVideoPath} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-background/50"></div>
