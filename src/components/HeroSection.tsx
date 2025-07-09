@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import shipVideo from "/videos/ship_vid.mp4";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -39,7 +40,7 @@ const HeroSection = () => {
           muted
           playsInline
         >
-          <source src="/videos/ship_vid.mp4" type="video/mp4" />
+          <source src={shipVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-background/50"></div>
