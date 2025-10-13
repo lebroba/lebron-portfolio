@@ -1,0 +1,33 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Trigger the workflow on push to the main branch
+  workflow_dispatch:
+
+permissions:
+  contents: write # Allow write access to checkout and push to the gh-pages branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      # This step assumes you are using Node.js.
+      # Adjust if you use a different environment.
+      - name: Setup Node.js and Install Dependencies ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Specify your Node.js version
+      - run: npm install # Install your project dependencies
+      - run: npm run build # Or your specific build command
+
+      - name: Deploy to gh-pages branch 🚀
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # The folder the action should deploy.
+          publish_dir: ./dist
