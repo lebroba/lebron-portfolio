@@ -13,6 +13,7 @@ interface SwiperElement extends HTMLElement {
 import { X, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SlideData } from '@/data/portfolioData';
+import { ModelViewer } from './ModelViewer';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -71,6 +72,18 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
               controls={true}
               light={true}
               playing={false}
+            />
+          </div>
+        );
+      case 'model':
+        return (
+          <div className="w-full h-full flex items-center justify-center">
+            <ModelViewer
+              modelPath={slide.src}
+              className="w-full h-full"
+              scale={slide.modelConfig?.scale || 0.01}
+              showControls={slide.modelConfig?.showControls !== false}
+              autoplay={slide.modelConfig?.autoplay || false}
             />
           </div>
         );
