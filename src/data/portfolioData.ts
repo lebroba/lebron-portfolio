@@ -83,20 +83,20 @@ export const portfolioData: CategoryData[] = [
       {
         id: 'military-cgbl-rc-3',
         type: 'image',
-        src: '/images/portfolio/Military/CGBL_RC_3_zps56866326.png',
+        src: getAssetPath('images/portfolio/3D/CGBL_RC_3_zps56866326.png'),
         title: 'CGBL RC 3',
         description: 'Coast Guard insignia design with official styling.',
         software: 'Adobe Illustrator, Photoshop',
-        thumbnail: '/images/portfolio/Military/CGBL_RC_3_zps56866326.png'
+        thumbnail: getAssetPath('images/portfolio/3D/CGBL_RC_3_zps56866326.png')
       },
       {
         id: 'military-cgbl-rc-7',
         type: 'image',
-        src: '/images/portfolio/Military/CGBL_RC_7_zps5a59e045.png',
+        src: getAssetPath('images/portfolio/3D/CGBL_RC_7_zps5a59e045.png'),
         title: 'CGBL RC 7',
         description: 'Coast Guard insignia variation with detailed elements.',
         software: 'Adobe Illustrator, Photoshop',
-        thumbnail: '/images/portfolio/Military/CGBL_RC_7_zps5a59e045.png'
+        thumbnail: getAssetPath('images/portfolio/3D/CGBL_RC_7_zps5a59e045.png')
       },
       {
         id: 'military-classroom',
@@ -164,11 +164,11 @@ export const portfolioData: CategoryData[] = [
       {
         id: 'military-mcpo',
         type: 'image',
-        src: '/images/portfolio/Military/MCPO.png',
+        src: getAssetPath('images/portfolio/3D/MCPO.png'),
         title: 'MCPO Insignia',
         description: 'Master Chief Petty Officer insignia design.',
         software: 'Adobe Illustrator',
-        thumbnail: '/images/portfolio/Military/MCPO.png'
+        thumbnail: getAssetPath('images/portfolio/3D/MCPO.png')
       },
       {
         id: 'military-safety-poster',
@@ -182,11 +182,47 @@ export const portfolioData: CategoryData[] = [
       {
         id: 'military-scpo',
         type: 'image',
-        src: '/images/portfolio/Military/SCPO.png',
+        src: getAssetPath('images/portfolio/3D/SCPO.png'),
         title: 'SCPO Insignia',
         description: 'Senior Chief Petty Officer insignia design.',
         software: 'Adobe Illustrator',
-        thumbnail: '/images/portfolio/Military/SCPO.png'
+        thumbnail: getAssetPath('images/portfolio/3D/SCPO.png')
+      },
+      {
+        id: 'military-fb-1',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Military/148731613_10157609881856361_7885770432082546542_n.jpg'),
+        title: 'Military Social Media Post 1',
+        description: 'Military-themed social media content design.',
+        software: 'Adobe Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Military/148731613_10157609881856361_7885770432082546542_n.jpg')
+      },
+      {
+        id: 'military-fb-2',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Military/471752678_10160464203271361_3781393327001349550_n.jpg'),
+        title: 'Military Social Media Post 2',
+        description: 'Military-themed social media content design.',
+        software: 'Adobe Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Military/471752678_10160464203271361_3781393327001349550_n.jpg')
+      },
+      {
+        id: 'military-fb-3',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Military/491463639_18498999940003477_1804989250546500869_n.jpg'),
+        title: 'Military Social Media Post 3',
+        description: 'Military-themed social media content design.',
+        software: 'Adobe Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Military/491463639_18498999940003477_1804989250546500869_n.jpg')
+      },
+      {
+        id: 'military-fb-4',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Military/504293820_10160939022291361_7937091232991324863_n.jpg'),
+        title: 'Military Social Media Post 4',
+        description: 'Military-themed social media content design.',
+        software: 'Adobe Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Military/504293820_10160939022291361_7937091232991324863_n.jpg')
       }
     ]
   },
@@ -291,7 +327,76 @@ export const portfolioData: CategoryData[] = [
         title: 'Tri LCS Model',
         description: '3D model of Littoral Combat Ship with tri-hull design.',
         software: 'Blender, KeyShot',
-        thumbnail: '/images/portfolio/3D/tri_LCS_zpstg5lborw.png'
+        thumbnail: getAssetPath('images/portfolio/3D/tri_LCS_zpstg5lborw.png')
+      },
+      {
+        id: '3d-chatgpt-aug',
+        type: 'image',
+        src: getAssetPath('images/portfolio/3D/ChatGPT Image Aug 11, 2025, 12_00_17 PM.png'),
+        title: 'AI-Enhanced 3D Concept',
+        description: 'AI-generated 3D design concept created with ChatGPT.',
+        software: 'ChatGPT, Blender',
+        thumbnail: getAssetPath('images/portfolio/3D/ChatGPT Image Aug 11, 2025, 12_00_17 PM.png')
+      },
+      {
+        id: '3d-micah-meerkat',
+        type: 'image',
+        src: getAssetPath('images/portfolio/3D/micah_meerkat.png'),
+        title: 'Micah Meerkat Character',
+        description: '3D character model of Micah the Meerkat with detailed texturing.',
+        software: 'Blender, Substance Painter',
+        thumbnail: getAssetPath('images/portfolio/3D/micah_meerkat.png')
+      },
+      {
+        id: '3d-facebook-photo',
+        type: 'image',
+        src: getAssetPath('images/portfolio/3D/421245559_10159509971681361_6915820595021571663_n.jpg'),
+        title: '3D Modeling Work',
+        description: '3D modeling project showcasing technical skills.',
+        software: 'Blender, Cinema 4D',
+        thumbnail: getAssetPath('images/portfolio/3D/421245559_10159509971681361_6915820595021571663_n.jpg')
+      },
+      {
+        id: '3d-ship-coin',
+        type: 'model',
+        src: getAssetPath('models/ship_coin_face.fbx'),
+        title: 'Ship Coin Design',
+        description: 'Interactive 3D coin design featuring naval vessel with potential animation sequences.',
+        software: 'Blender, Cinema 4D',
+        thumbnail: getAssetPath('images/portfolio/3D/CPO.png'),
+        modelConfig: {
+          scale: 0.03,
+          showControls: true,
+          autoplay: false
+        }
+      },
+      {
+        id: '3d-thailly-model',
+        type: 'model',
+        src: getAssetPath('models/thailly_001.fbx'),
+        title: 'Thailly Character Model',
+        description: '3D character model with animation capabilities for gaming or visualization.',
+        software: 'Blender, Mixamo',
+        thumbnail: getAssetPath('images/portfolio/3D/micah_meerkat.png'),
+        modelConfig: {
+          scale: 0.02,
+          showControls: true,
+          autoplay: false
+        }
+      },
+      {
+        id: '3d-complex-model',
+        type: 'model',
+        src: getAssetPath('models/5d4cff366de611dadd0dbdfdf34ddc92.fbx'),
+        title: 'Complex 3D Assembly',
+        description: 'Detailed 3D model with multiple components and animation potential.',
+        software: 'Blender, Cinema 4D',
+        thumbnail: getAssetPath('images/portfolio/3D/FXG_detailed2_zpsfa5d00d9.png'),
+        modelConfig: {
+          scale: 0.01,
+          showControls: true,
+          autoplay: false
+        }
       }
     ]
   },
@@ -396,7 +501,142 @@ export const portfolioData: CategoryData[] = [
         title: 'Tungsten Rain',
         description: 'Tungsten Rain print design with atmospheric elements.',
         software: 'Adobe Photoshop, Illustrator',
-        thumbnail: '/images/portfolio/Print/tungsten_rain_zpsha1nze7g.png'
+        thumbnail: getAssetPath('images/portfolio/Print/tungsten_rain_zpsha1nze7g.png')
+      },
+      {
+        id: 'print-aaw-poster',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/AAW_Poster.png'),
+        title: 'American Arm Wrestling Poster',
+        description: 'Promotional poster design for American Arm Wrestling events.',
+        software: 'Adobe Photoshop, Illustrator',
+        thumbnail: getAssetPath('images/portfolio/Print/AAW_Poster.png')
+      },
+      {
+        id: 'print-seal-approval',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/Seal of approval.png'),
+        title: 'Seal of Approval',
+        description: 'Official seal of approval design for branding and certification.',
+        software: 'Adobe Illustrator',
+        thumbnail: getAssetPath('images/portfolio/Print/Seal of approval.png')
+      },
+      {
+        id: 'print-bike-shorts-girl',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/bike-shorts-mockup-of-a-happy-girl-wearing-a-t-shirt-against-a-colored-backdrop-42367 (1).png'),
+        title: 'T-Shirt Design - Girl Mockup',
+        description: 'T-shirt design mockup featuring active lifestyle apparel.',
+        software: 'Adobe Photoshop, Illustrator',
+        thumbnail: getAssetPath('images/portfolio/Print/bike-shorts-mockup-of-a-happy-girl-wearing-a-t-shirt-against-a-colored-backdrop-42367 (1).png')
+      },
+      {
+        id: 'print-boy-park-ducks',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/boy-wearing-a-t-shirt-mockup-while-at-a-park-with-ducks-a17942 (1).png'),
+        title: 'T-Shirt Design - Boy at Park',
+        description: 'T-shirt design mockup featuring youth casual wear.',
+        software: 'Adobe Photoshop, Illustrator',
+        thumbnail: getAssetPath('images/portfolio/Print/boy-wearing-a-t-shirt-mockup-while-at-a-park-with-ducks-a17942 (1).png')
+      },
+      {
+        id: 'print-cool-penguin',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/cool_penguin.png'),
+        title: 'Cool Penguin Character',
+        description: 'Character design featuring a stylish penguin for print merchandise.',
+        software: 'Adobe Illustrator',
+        thumbnail: getAssetPath('images/portfolio/Print/cool_penguin.png')
+      },
+      {
+        id: 'print-fanz-ad',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/fanz_advertisment_001.png'),
+        title: 'Fanz Advertisement',
+        description: 'Print advertisement design for Fanz platform marketing.',
+        software: 'Adobe InDesign, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Print/fanz_advertisment_001.png')
+      },
+      {
+        id: 'print-heathered-boy',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/heathered-long-sleeve-t-shirt-mockup-of-a-boy-playing-at-the-park-28114 (1).png'),
+        title: 'Long Sleeve T-Shirt - Boy Playing',
+        description: 'Long sleeve t-shirt mockup design for youth apparel line.',
+        software: 'Adobe Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Print/heathered-long-sleeve-t-shirt-mockup-of-a-boy-playing-at-the-park-28114 (1).png')
+      },
+      {
+        id: 'print-evoc-logo-1',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/lebroba_A_modern_sleek_and_dramatic_gaming_logo_for_EVOC_an_E_529d24f8-938d-4758-93fa-2bafa429c75b_3.png'),
+        title: 'EVOC Gaming Logo Version 1',
+        description: 'Modern gaming logo design for EVOC esports brand.',
+        software: 'Adobe Illustrator, Midjourney',
+        thumbnail: getAssetPath('images/portfolio/Print/lebroba_A_modern_sleek_and_dramatic_gaming_logo_for_EVOC_an_E_529d24f8-938d-4758-93fa-2bafa429c75b_3.png')
+      },
+      {
+        id: 'print-evoc-logo-2',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/lebroba_A_modern_sleek_and_dramatic_gaming_logo_for_EVOC_an_E_c1e19f2b-a5b6-494d-9bf5-3e04d19c87ea_3.png'),
+        title: 'EVOC Gaming Logo Version 2',
+        description: 'Alternative gaming logo design for EVOC esports brand.',
+        software: 'Adobe Illustrator, Midjourney',
+        thumbnail: getAssetPath('images/portfolio/Print/lebroba_A_modern_sleek_and_dramatic_gaming_logo_for_EVOC_an_E_c1e19f2b-a5b6-494d-9bf5-3e04d19c87ea_3.png')
+      },
+      {
+        id: 'print-tickled-pink',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/tickled_pink.png'),
+        title: 'Tickled Pink Design',
+        description: 'Whimsical character design for print merchandise.',
+        software: 'Adobe Illustrator, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Print/tickled_pink.png')
+      },
+      {
+        id: 'print-toucan-game',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/toucan game.png'),
+        title: 'Toucan Game Design',
+        description: 'Game-themed toucan character design for print materials.',
+        software: 'Adobe Illustrator',
+        thumbnail: getAssetPath('images/portfolio/Print/toucan game.png')
+      },
+      {
+        id: 'print-transparent-tee-runner',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/transparent-tee-mockup-of-a-man-running-7215a (1).png'),
+        title: 'Performance T-Shirt - Runner',
+        description: 'Athletic t-shirt design mockup for active wear collection.',
+        software: 'Adobe Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Print/transparent-tee-mockup-of-a-man-running-7215a (1).png')
+      },
+      {
+        id: 'print-child-popsicle',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/t-shirt-mockup-of-a-child-eating-a-popsicle-at-a-park-a20955 (2).png'),
+        title: 'Kids T-Shirt - Summer Fun',
+        description: 'Youth t-shirt design mockup for summer apparel line.',
+        software: 'Adobe Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Print/t-shirt-mockup-of-a-child-eating-a-popsicle-at-a-park-a20955 (2).png')
+      },
+      {
+        id: 'print-zoo-hair',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/zoo_hair_002.png'),
+        title: 'Zoo Hair Design',
+        description: 'Creative animal-themed hair salon branding design.',
+        software: 'Adobe Illustrator, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Print/zoo_hair_002.png')
+      },
+      {
+        id: 'print-fb-photo',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Print/471630804_10160480515146361_143017445260092885_n.jpg'),
+        title: 'Print Design Showcase',
+        description: 'Print design work featured on social media.',
+        software: 'Adobe Photoshop, InDesign',
+        thumbnail: getAssetPath('images/portfolio/Print/471630804_10160480515146361_143017445260092885_n.jpg')
       }
     ]
   },
@@ -407,65 +647,83 @@ export const portfolioData: CategoryData[] = [
       {
         id: 'web-american-arm-wrestling',
         type: 'image',
-        src: '/images/portfolio/Web/ic_launcher.png',
-        title: 'App Icon Launcher',
-        description: 'Mobile app launcher icon design with modern styling.',
+        src: getAssetPath('images/portfolio/Web/american_arm_wrestling.png'),
+        title: 'American Arm Wrestling',
+        description: 'Web design for American Arm Wrestling brand identity.',
         software: 'Figma, Adobe Illustrator',
-        thumbnail: '/images/portfolio/Web/ic_launcher.png'
+        thumbnail: getAssetPath('images/portfolio/Web/american_arm_wrestling.png')
+      },
+      {
+        id: 'web-fanz-promo-1',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Web/fanz_promo_test_001.png'),
+        title: 'Fanz Promotional Design 1',
+        description: 'First promotional design test for Fanz platform.',
+        software: 'Figma, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Web/fanz_promo_test_001.png')
+      },
+      {
+        id: 'web-fanz-promo-2',
+        type: 'image',
+        src: getAssetPath('images/portfolio/Web/fanz_promo_test_002.png'),
+        title: 'Fanz Promotional Design 2',
+        description: 'Second promotional design test for Fanz platform.',
+        software: 'Figma, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Web/fanz_promo_test_002.png')
       },
       {
         id: 'web-fanz-promo-3',
         type: 'image',
-        src: '/images/portfolio/Web/fanz_promo_test_003.png',
+        src: getAssetPath('images/portfolio/Web/fanz_promo_test_003.png'),
         title: 'Fanz Promotional Design 3',
         description: 'Third promotional design test for Fanz platform.',
         software: 'Figma, Photoshop',
-        thumbnail: '/images/portfolio/Web/fanz_promo_test_003.png'
+        thumbnail: getAssetPath('images/portfolio/Web/fanz_promo_test_003.png')
       },
       {
         id: 'web-gemini-image',
         type: 'image',
-        src: '/images/portfolio/Web/Gemini_Generated_Image_t7j4dyt7j4dyt7j4 (1).png',
+        src: getAssetPath('images/portfolio/Web/Gemini_Generated_Image_t7j4dyt7j4dyt7j4 (1).png'),
         title: 'AI Generated Web Design',
         description: 'AI-assisted web design concept using Gemini.',
         software: 'Gemini AI, Figma',
-        thumbnail: '/images/portfolio/Web/Gemini_Generated_Image_t7j4dyt7j4dyt7j4 (1).png'
+        thumbnail: getAssetPath('images/portfolio/Web/Gemini_Generated_Image_t7j4dyt7j4dyt7j4 (1).png')
       },
       {
         id: 'web-gwt-logo',
         type: 'image',
-        src: '/images/portfolio/Web/gwt_logo_type.png',
+        src: getAssetPath('images/portfolio/Web/gwt_logo_type.png'),
         title: 'GWT Logo Type',
         description: 'Logo type design for GWT brand.',
         software: 'Adobe Illustrator',
-        thumbnail: '/images/portfolio/Web/gwt_logo_type.png'
+        thumbnail: getAssetPath('images/portfolio/Web/gwt_logo_type.png')
       },
       {
         id: 'web-z-ad-mockup',
         type: 'image',
-        src: '/images/portfolio/Web/Z_ad_mockup_002.png',
+        src: getAssetPath('images/portfolio/Web/Z_ad_mockup_002.png'),
         title: 'Z Advertisement Mockup',
         description: 'Advertisement mockup design for Z brand.',
         software: 'Photoshop, Illustrator',
-        thumbnail: '/images/portfolio/Web/Z_ad_mockup_002.png'
+        thumbnail: getAssetPath('images/portfolio/Web/Z_ad_mockup_002.png')
       },
       {
         id: 'web-z-logo-v4',
         type: 'image',
-        src: '/images/portfolio/Web/Z_Logo_V_004_mockup.png',
+        src: getAssetPath('images/portfolio/Web/Z_Logo_V_004_mockup.png'),
         title: 'Z Logo Version 4',
         description: 'Fourth iteration of Z logo design with mockup presentation.',
         software: 'Adobe Illustrator, Photoshop',
-        thumbnail: '/images/portfolio/Web/Z_Logo_V_004_mockup.png'
+        thumbnail: getAssetPath('images/portfolio/Web/Z_Logo_V_004_mockup.png')
       },
       {
         id: 'web-z-logo-v4a',
         type: 'image',
-        src: '/images/portfolio/Web/launcher_icon4_sm.png',
-        title: 'Launcher Icon Small',
-        description: 'Small launcher icon design for web applications.',
-        software: 'Figma, Adobe Illustrator',
-        thumbnail: '/images/portfolio/Web/launcher_icon4_sm.png'
+        src: getAssetPath('images/portfolio/Web/Z_Logo_V_004a_mockup.png'),
+        title: 'Z Logo Version 4A',
+        description: 'Alternative version of Z logo design with mockup presentation.',
+        software: 'Adobe Illustrator, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/Web/Z_Logo_V_004a_mockup.png')
       }
     ]
   },
@@ -489,7 +747,61 @@ export const portfolioData: CategoryData[] = [
         title: 'AI Portrait',
         description: 'AI-generated portrait with photorealistic styling.',
         software: 'Midjourney, Photoshop, Stable Diffusion',
-        thumbnail: '/images/portfolio/AI/portrait-of-zoeroberts.png'
+        thumbnail: getAssetPath('images/portfolio/AI/portrait-of-zoeroberts.png')
+      },
+      {
+        id: 'ai-arm-wrestling-3d',
+        type: 'image',
+        src: getAssetPath('images/portfolio/AI/american_arm_wrestling_3D (1).png'),
+        title: 'American Arm Wrestling 3D',
+        description: 'AI-generated 3D artwork for American Arm Wrestling branding.',
+        software: 'Midjourney, Stable Diffusion',
+        thumbnail: getAssetPath('images/portfolio/AI/american_arm_wrestling_3D (1).png')
+      },
+      {
+        id: 'ai-gqt-002',
+        type: 'image',
+        src: getAssetPath('images/portfolio/AI/gqt_002.png'),
+        title: 'GQT Character Design',
+        description: 'AI-assisted character design with unique styling.',
+        software: 'Midjourney, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/AI/gqt_002.png')
+      },
+      {
+        id: 'ai-sucker-punch-tattoo',
+        type: 'image',
+        src: getAssetPath('images/portfolio/AI/lebroba_Girls_with_Tattoos_in_suckerpunch_style_type_letterin_4aca3291-ac44-41ed-a61b-84469a447370_2 - Copy (1).png'),
+        title: 'Sucker Punch Style Tattoo Art',
+        description: 'AI-generated artwork inspired by Sucker Punch film aesthetic with tattoo lettering.',
+        software: 'Midjourney, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/AI/lebroba_Girls_with_Tattoos_in_suckerpunch_style_type_letterin_4aca3291-ac44-41ed-a61b-84469a447370_2 - Copy (1).png')
+      },
+      {
+        id: 'ai-comic-page-001',
+        type: 'image',
+        src: getAssetPath('images/portfolio/AI/page_001.png'),
+        title: 'Comic Page 1',
+        description: 'AI-generated comic book page with sequential art storytelling.',
+        software: 'Stable Diffusion, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/AI/page_001.png')
+      },
+      {
+        id: 'ai-comic-page-002',
+        type: 'image',
+        src: getAssetPath('images/portfolio/AI/page_002.png'),
+        title: 'Comic Page 2',
+        description: 'AI-generated comic book page with dynamic panel layouts.',
+        software: 'Stable Diffusion, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/AI/page_002.png')
+      },
+      {
+        id: 'ai-comic-page-003',
+        type: 'image',
+        src: getAssetPath('images/portfolio/AI/page_003.png'),
+        title: 'Comic Page 3',
+        description: 'AI-generated comic book page with cinematic composition.',
+        software: 'Stable Diffusion, Photoshop',
+        thumbnail: getAssetPath('images/portfolio/AI/page_003.png')
       }
     ]
   }
