@@ -10,6 +10,7 @@ import Portfolio from "./pages/Portfolio";
 import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import TargetCursor from './components/TargetCursor';
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <TargetCursor />
       <HashRouter>
         <Routes>
           <Route path="/" element={<Index />} />

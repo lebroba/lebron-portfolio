@@ -4,19 +4,15 @@ const getAssetPath = (path: string): string => {
 };
 
 export interface SlideData {
-  id: string;
-  type: 'image' | 'video' | 'youtube' | 'vimeo' | 'model';
-  src: string;
-  title: string;
-  description: string;
-  software: string;
-  thumbnail?: string;
-  modelConfig?: {
-    scale?: number;
-    autoplay?: boolean;
-    showControls?: boolean;
-  };
-}
+    id: string;
+    type: 'image' | 'video' | 'youtube' | 'vimeo' | 'model';
+    src: string;
+    title: string;
+    description: string;
+    software: string;
+    thumbnail?: string;
+    format?: 'gltf' | 'fbx' | 'obj';
+  }
 
 export interface CategoryData {
   id: string;
@@ -358,45 +354,50 @@ export const portfolioData: CategoryData[] = [
       },
       {
         id: '3d-ship-coin',
-        type: 'model',
-        src: getAssetPath('models/ship_coin_face.fbx'),
+        type: 'image',
+        src: getAssetPath('images/portfolio/3D/CPO.png'),
         title: 'Ship Coin Design',
-        description: 'Interactive 3D coin design featuring naval vessel with potential animation sequences.',
+        description: '3D coin design featuring naval vessel with detailed modeling and texturing.',
         software: 'Blender, Cinema 4D',
-        thumbnail: getAssetPath('images/portfolio/3D/CPO.png'),
-        modelConfig: {
-          scale: 0.03,
-          showControls: true,
-          autoplay: false
-        }
+        thumbnail: getAssetPath('images/portfolio/3D/CPO.png')
       },
       {
         id: '3d-thailly-model',
-        type: 'model',
-        src: getAssetPath('models/thailly_001.fbx'),
+        type: 'image',
+        src: getAssetPath('images/portfolio/3D/micah_meerkat.png'),
         title: 'Thailly Character Model',
-        description: '3D character model with animation capabilities for gaming or visualization.',
+        description: '3D character model with detailed rigging and texturing for animation.',
         software: 'Blender, Mixamo',
-        thumbnail: getAssetPath('images/portfolio/3D/micah_meerkat.png'),
-        modelConfig: {
-          scale: 0.02,
-          showControls: true,
-          autoplay: false
-        }
+        thumbnail: getAssetPath('images/portfolio/3D/micah_meerkat.png')
       },
       {
         id: '3d-complex-model',
-        type: 'model',
-        src: getAssetPath('models/5d4cff366de611dadd0dbdfdf34ddc92.fbx'),
+        type: 'image',
+        src: getAssetPath('images/portfolio/3D/FXG_detailed2_zpsfa5d00d9.png'),
         title: 'Complex 3D Assembly',
-        description: 'Detailed 3D model with multiple components and animation potential.',
+        description: 'Detailed 3D model with multiple components and advanced texturing.',
         software: 'Blender, Cinema 4D',
-        thumbnail: getAssetPath('images/portfolio/3D/FXG_detailed2_zpsfa5d00d9.png'),
-        modelConfig: {
-          scale: 0.01,
-          showControls: true,
-          autoplay: false
-        }
+        thumbnail: getAssetPath('images/portfolio/3D/FXG_detailed2_zpsfa5d00d9.png')
+      },
+      {
+        id: '3d-ship-coin-interactive',
+        type: 'model',
+        src: `${import.meta.env.BASE_URL}models/ship_coin_face.fbx`,
+        title: 'Interactive Ship Coin 3D Model',
+        description: 'Interactive 3D model of a ship coin design featuring detailed naval vessel with full 360-degree viewing capabilities.',
+        software: 'Blender, Cinema 4D, FBX',
+        format: 'fbx',
+        thumbnail: getAssetPath('images/portfolio/3D/CPO.png')
+      },
+      {
+        id: '3d-naval-vessel-interactive',
+        type: 'model',
+        src: `${import.meta.env.BASE_URL}models/5d4cff366de611dadd0dbdfdf34ddc92.fbx`,
+        title: 'Interactive Naval Vessel 3D Model',
+        description: 'Detailed 3D model of a naval vessel with interactive controls allowing users to explore the ship from all angles.',
+        software: 'Blender, Cinema 4D, FBX',
+        format: 'fbx',
+        thumbnail: getAssetPath('images/portfolio/3D/large_scale_combatant.png (1).png')
       }
     ]
   },

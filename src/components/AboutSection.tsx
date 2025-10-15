@@ -1,4 +1,6 @@
 
+const professionalPortrait = 'public/images/547469795_10161386175181361_1741166407079409288_n.jpg';
+
 const AboutSection = () => {
   return (
     <section 
@@ -30,13 +32,13 @@ const AboutSection = () => {
                 {/* Military-style frame */}
                 <div className="absolute inset-2 border border-primary/50 rounded-lg group-hover:border-primary transition-colors duration-300"></div>
                 
-                {/* Placeholder content */}
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-3xl font-orbitron font-bold text-primary">BL</span>
-                  </div>
-                  <p className="text-muted-foreground font-rajdhani">Professional Portrait</p>
-                </div>
+                {/* Professional Portrait */}
+                <img
+                  src={professionalPortrait}
+                  alt="Professional Portrait"
+                  className="w-full h-full object-cover rounded-lg"
+    
+                />
 
                 {/* Corner markers */}
                 <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-primary"></div>

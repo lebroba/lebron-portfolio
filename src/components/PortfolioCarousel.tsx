@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Thumbs, Keyboard } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper/types';
 import ReactPlayer from 'react-player';
+import { ModelViewer } from '@/components/ModelViewer';
 
 // Define interface for Swiper element
 interface SwiperElement extends HTMLElement {
@@ -13,7 +14,6 @@ interface SwiperElement extends HTMLElement {
 import { X, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SlideData } from '@/data/portfolioData';
-import { ModelViewer } from './ModelViewer';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -79,11 +79,11 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
         return (
           <div className="w-full h-full flex items-center justify-center">
             <ModelViewer
-              modelPath={slide.src}
-              className="w-full h-full"
-              scale={slide.modelConfig?.scale || 0.01}
-              showControls={slide.modelConfig?.showControls !== false}
-              autoplay={slide.modelConfig?.autoplay || false}
+              modelUrl={slide.src}
+              format={slide.format || 'gltf'}
+              height="70vh"
+              width="100%"
+              className="max-w-4xl"
             />
           </div>
         );
@@ -103,7 +103,7 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
       <Button
         variant="ghost"
         size="icon"
-        className="absolute top-4 right-4 z-10 text-white hover:bg-white/20"
+        className="absolute top-4 right-4 z-10 text-white hover:bg-white/20 cursor-target"
         onClick={onClose}
         aria-label="Close carousel"
       >
@@ -113,7 +113,7 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
       {/* Navigation Arrows */}
       <button
         ref={prevRef}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors cursor-target"
         aria-label="Previous slide"
       >
         <ArrowLeft size={20} />
@@ -121,7 +121,7 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
       
       <button
         ref={nextRef}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors cursor-target"
         aria-label="Next slide"
       >
         <ArrowRight size={20} />
@@ -207,7 +207,7 @@ const PortfolioCarousel = ({ slides, initialSlide = 0, onClose }: PortfolioCarou
               <SwiperSlide key={slide.id} className="!w-auto">
                 <div
                   className={`
-                    w-20 h-16 bg-tactical-green/20 rounded border-2 cursor-pointer overflow-hidden
+                    w-20 h-16 bg-tactical-green/20 rounded border-2 cursor-pointer overflow-hidden cursor-target
                     ${index === activeIndex ? 'border-primary' : 'border-primary/30 hover:border-primary/60'}
                     transition-all duration-200
                   `}

@@ -21,7 +21,7 @@ const Header = () => {
     <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-primary/20 z-50">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between" role="navigation" aria-label="Main navigation">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2 cursor-target">
           <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-sm flex items-center justify-center">
             <span className="text-background font-orbitron font-bold text-sm" aria-hidden="true">BL</span>
           </div>
@@ -36,7 +36,7 @@ const Header = () => {
             <Link
               key={item.name}
               to={item.href}
-              className={`text-foreground hover:text-primary transition-colors duration-200 font-rajdhani font-medium uppercase tracking-wide text-sm focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 ${
+              className={`cursor-target text-foreground hover:text-tactical-neon-green transition-colors duration-200 font-rajdhani font-medium uppercase tracking-wide text-sm focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 ${
                 isActivePage(item.href) ? 'text-primary border-b-2 border-primary' : ''
               }`}
               aria-label={`Navigate to ${item.name} section`}
@@ -50,7 +50,7 @@ const Header = () => {
         <Button
           variant="ghost"
           size="sm"
-          className="md:hidden p-2"
+          className="md:hidden p-2 cursor-target"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -72,7 +72,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`block text-foreground hover:text-primary transition-colors duration-200 font-rajdhani font-medium uppercase tracking-wide text-sm py-2 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 ${
+                  className={`cursor-target block text-foreground hover:text-tactical-neon-green transition-colors duration-200 font-rajdhani font-medium uppercase tracking-wide text-sm py-2 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 ${
                     isActivePage(item.href) ? 'text-primary' : ''
                   }`}
                   onClick={() => setIsMenuOpen(false)}

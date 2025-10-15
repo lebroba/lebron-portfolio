@@ -95,10 +95,10 @@ const PortfolioSection = () => {
               variant={activeFilter === filter.id ? "default" : "outline"}
               onClick={() => setActiveFilter(filter.id)}
               className={`
-                px-6 py-3 font-rajdhani font-medium uppercase tracking-wider text-sm
-                ${activeFilter === filter.id 
-                  ? "tactical-btn" 
-                  : "border-primary/50 text-primary hover:bg-primary/10"
+                px-6 py-3 font-rajdhani font-medium uppercase tracking-wider text-sm cursor-target
+                ${activeFilter === filter.id
+                  ? "tactical-btn"
+                  : "border-primary/50 text-primary hover:bg-primary/10 hover:text-tactical-neon-green"
                 }
                 transition-all duration-300
               `}
@@ -115,7 +115,7 @@ const PortfolioSection = () => {
           {filteredItems.map((item, index) => (
             <div
               key={item.id}
-              className="portfolio-item group animate-fade-in bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 cursor-pointer"
+              className="portfolio-item group animate-fade-in bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 cursor-pointer cursor-target"
               style={{ animationDelay: `${index * 0.1}s` }}
               data-category={item.category}
               role="button"
@@ -166,7 +166,7 @@ const PortfolioSection = () => {
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                   <button
-                    className="view-details-btn inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md tactical-btn px-4 py-2 text-xs"
+                    className="view-details-btn inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 hover:text-tactical-neon-green h-9 rounded-md tactical-btn px-4 py-2 text-xs cursor-target"
                     aria-label={`View details for ${item.title}`}
                     data-category={item.category}
                     onClick={(e) => {
@@ -207,7 +207,7 @@ const PortfolioSection = () => {
         <div className="text-center mt-12">
           <Button
             size="lg"
-            className="tactical-btn px-8 py-6 text-lg"
+            className="tactical-btn px-8 py-6 text-lg cursor-target hover:text-tactical-neon-green"
             aria-label="View complete portfolio"
             onClick={() => navigate('/portfolio')}
           >

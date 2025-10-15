@@ -179,10 +179,10 @@ const ContactSection = () => {
                 </div>
 
                 {/* Submit Button */}
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="tactical-btn w-full py-6 text-lg"
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="tactical-btn w-full py-6 text-lg cursor-target"
                   aria-label="Send mission brief"
                 >
                   Transmit Mission Brief
@@ -204,7 +204,7 @@ const ContactSection = () => {
                   <a
                     key={info.label}
                     href={info.href}
-                    className="flex items-center space-x-4 p-4 bg-primary/5 border border-primary/20 rounded-lg hover:bg-primary/10 hover:border-primary/40 transition-all duration-300 group"
+                    className="flex items-center space-x-4 p-4 bg-primary/5 border border-primary/20 rounded-lg hover:bg-primary/10 hover:border-primary/40 transition-all duration-300 group cursor-target"
                     aria-label={`Contact via ${info.label}: ${info.value}`}
                   >
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-300">
@@ -236,7 +236,7 @@ const ContactSection = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-12 h-12 bg-primary/20 border border-primary/30 rounded-lg flex items-center justify-center hover:bg-primary/30 hover:border-primary transition-all duration-300 ${social.color}`}
+                    className={`w-12 h-12 bg-primary/20 border border-primary/30 rounded-lg flex items-center justify-center hover:bg-primary/30 hover:border-primary transition-all duration-300 ${social.color} cursor-target`}
                     aria-label={`Visit ${social.label} profile`}
                   >
                     <social.icon className="w-6 h-6" aria-hidden="true" />

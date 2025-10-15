@@ -67,7 +67,8 @@ export default {
 					olive: '#3d4f2f',
 					sand: '#c4a77d',
 					steel: '#4a5568',
-					orange: '#fd7f28'
+					orange: '#fd7f28',
+					'neon-green': '#00ff41'
 				}
 			},
 			fontFamily: {

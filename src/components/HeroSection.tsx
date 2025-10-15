@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -8,9 +8,11 @@ console.log("Video path:", shipVideoPath);
 
 const HeroSection = () => {
   const [currentTitle, setCurrentTitle] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const titles = [
     "Military Graphic Artist",
-    "Tactical Design Specialist", 
+    "Tactical Design Specialist",
     "Visual Communications Expert"
   ];
 
@@ -20,6 +22,13 @@ const HeroSection = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, [titles.length]);
+
+  const handleUnmute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = false;
+      setIsMuted(false);
+    }
+  };
 
   return (
     <section
@@ -37,10 +46,11 @@ const HeroSection = () => {
       {/* Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
         <video
+          ref={videoRef}
           className="absolute w-full h-full object-cover opacity-40"
           autoPlay
           loop
-          muted
+          muted={isMuted}
           playsInline
         >
           <source src={shipVideoPath} type="video/mp4" />
@@ -88,18 +98,18 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <Link to="/portfolio" aria-label="View my portfolio">
-              <Button 
-                size="lg" 
-                className="tactical-btn px-8 py-6 text-lg w-full sm:w-auto"
+              <Button
+                size="lg"
+                className="tactical-btn px-8 py-6 text-lg w-full sm:w-auto cursor-target"
               >
                 View Portfolio
               </Button>
             </Link>
             <Link to="/contact" aria-label="Get in touch">
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 px-8 py-6 text-lg font-orbitron uppercase tracking-wider w-full sm:w-auto"
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 px-8 py-6 text-lg font-orbitron uppercase tracking-wider w-full sm:w-auto cursor-target"
               >
                 Get In Touch
               </Button>
@@ -112,6 +122,20 @@ const HeroSection = () => {
               <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
             </div>
           </div>
+
+          {/* Unmute Button */}
+          {isMuted && (
+            <div className="absolute bottom-8 right-8" aria-hidden="true">
+              <Button
+                onClick={handleUnmute}
+                size="sm"
+                className="bg-black/50 hover:bg-black/70 text-white border border-primary/30 backdrop-blur-sm transition-all duration-300"
+                title="Enable audio"
+              >
+                🔊 Unmute
+              </Button>
+            </div>
+          )}
         </div>
       </div>
 
